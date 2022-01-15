@@ -1,0 +1,31 @@
+<%- include("partials/header"); -%>
+<form action="/register" method="POST">
+  <div class="container">
+    <h1 class="title-font">Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+    <input type="text" name="username" class="form-control top spaced" placeholder="Name" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$" oninvalid="this.setCustomValidity('Username must be alphanumeric & between 6-12 letters, Ex: sandeep45')" oninput="this.setCustomValidity('')" required autofocus>
+    <input type="password" name="password" id="password" class="form-control middle spaced" placeholder="Password" pattern="^[A-Za-z0-9 @$!%*#?&]{6,}$" oninvalid="this.setCustomValidity('Password must be minimum 6 characters that can be alphabet, numbers and special characters, Ex: san@123')" oninput="this.setCustomValidity('')" required onchange='check_pass();' />
+    <input type="password" name="confirm_password" class="form-control bottom spaced" id="confirm_password" placeholder="Confirm Password" required onclick="validatePassword();" />
+    <hr>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="registration" id="submit">Register</button>
+  </div>
+  <div class="container signin">
+    <p>Already have an account? <a href="/" class="anchor">Sign in</a>.</p>
+  </div>
+</form>
+<script>
+  var password = document.getElementById("password"),
+    confirm_password = document.getElementById("confirm_password");
+
+  function validatePassword() {
+    if (password.value != confirm_password.value) {
+      confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+      confirm_password.setCustomValidity('');
+    }
+  }
+  password.onchange = validatePassword;
+  confirm_password.onkeyup = validatePassword;
+</script>
+<%- include("partials/footer"); -%>

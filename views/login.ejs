@@ -1,0 +1,16 @@
+<%- include("partials/header"); -%>
+<form action="/" method="POST">
+  <div class="container">
+    <h1 class="title-font">Login</h1>
+    <p>Stay tuned with EV Studios</p>
+    <hr>
+    <input type="text" name="username" class="form-control top spaced" placeholder="Name" required autofocus>
+    <input type="password" name="password" class="form-control middle spaced" placeholder="Password" required>
+    <hr>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+  </div>
+  <div class="container signin">
+    <p>Not a member? <a href="/register" class="anchor">Register</a>.</p>
+  </div>
+</form>
+<%- include("partials/footer"); -%>
